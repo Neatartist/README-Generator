@@ -47,8 +47,27 @@ const questions = [
     type: 'input',
     message: 'What is the usage of this project?',
     name: 'usage',
-    validate:
+    validate: User_usage =>{
+    if (User_usage) {
+      return true;
+    } else {
+      console.log('please describe the usage of the project.');
+      return false;
+    }
   }
+  },
+  {
+    type: 'input',
+    message: 'what were your contributions to this project?',
+    name: 'contributions',
+    validate: user_contribution => {
+      if (user_contribution){
+        return true;
+    } else {
+      console.log('Please list what you contributed');
+      return false;
+    }
+  },
 ];
 
 
