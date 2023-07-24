@@ -83,8 +83,21 @@ const questions = [
     }
   },
   {
-    type: 
-  }
+    type: 'checkbox',
+    message: 'choose the license you want',
+    name: 'license',
+    validate: user_license => {
+      if (user_license){
+        return true;
+      } else {
+        console.log('Please choose a valid license');
+        return false;
+      }
+    }
+  },
+  {
+    type: 'input',
+    message: 
 ];
 
 
