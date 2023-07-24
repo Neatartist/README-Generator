@@ -67,7 +67,24 @@ const questions = [
       console.log('Please list what you contributed');
       return false;
     }
+    }
   },
+  {
+    type: 'input',
+    message: 'Please enter your github username',
+    name:'github'
+    validate: user_github => {
+      if (user_github){
+        return true;
+      } else {
+        console.log('Please enter your github username');
+        return false;
+      }
+    }
+  },
+  {
+    type: 
+  }
 ];
 
 
