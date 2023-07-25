@@ -1,10 +1,11 @@
 // TODO: Include packages needed for this application
-const inquirer = require(inquirer)
+const inquirer = require('inquirer')
 const fs = require('fs')
 const generateMarkdown = require('./utils/generateMarkdown.js');
 // TODO: Create an array of questions for user input
 const questions = [
   {
+    // creates an input for the user to name their project
     type: 'input',
     message: 'What is the name of your project?',
     name: 'title',
@@ -18,6 +19,7 @@ const questions = [
     },
   },
   {
+    // creates an input to describe what the project is 
     type: 'input', 
     message: 'Describe what your project is about.',
     name: 'description',
@@ -31,6 +33,7 @@ const questions = [
     }
   },
   {
+    // creates an input to describe how you install the generator
     type: 'input',
     message: 'open an integrated terminal and type "npm install"',
     name: 'installation',
@@ -44,6 +47,7 @@ const questions = [
     }
   },
   {
+    // creates an input for the user to describe the usage for their project
     type: 'input',
     message: 'What is the usage of this project?',
     name: 'usage',
@@ -57,6 +61,7 @@ const questions = [
   }
   },
   {
+    // creates an input for the user to put their contributions 
     type: 'input',
     message: 'What were your contributions to this project?',
     name: 'contributions',
@@ -70,6 +75,7 @@ const questions = [
     }
   },
   {
+    // creates the input for the user to put their github username 
     type: 'input',
     message: 'Please enter your Github username',
     name:'github',
@@ -83,6 +89,7 @@ const questions = [
     }
   },
   {
+    // this creates the question for the license which is a checkbox
     type: 'checkbox',
     message: 'Choose the license you want',
     name: 'license',
@@ -94,6 +101,7 @@ const questions = [
       'The Unlicense',
       'GNU AGPLv3',
     ],
+    // creates the input when the user selects their license
   validate: user_license => {
     if (user_license){
       return true;
@@ -104,6 +112,7 @@ const questions = [
   }
   },
   {
+    // creates the input for the user to describe how they will test their project
     type: 'input',
     message: 'What is your plan to test the project?',
     name: 'test',
@@ -120,6 +129,7 @@ const questions = [
 
 
 // TODO: Create a function to write README file
+// creates a function to write the README
 function writeToFile(fileName, data) {
   fs.writeFile(fileName, data, (err) => {
     if (err) {
@@ -130,11 +140,12 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
+// initializes the app
 function init() {
   inquirer.prompt(questions) 
   .then (function (userInput) {
       console.log(userInput)
-      writeToFile("README.md", generateMarkdown(userInput);
+      writeToFile("README.md", generateMarkdown(userInput));
   });
 }
 
